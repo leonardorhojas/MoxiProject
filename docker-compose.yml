@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: moxie_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: moxie_user
+      POSTGRES_PASSWORD: moxie_password
+      POSTGRES_DB: moxie_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: moxie_django
+    command: >
+      sh -c "python3.10 manage.py migrate && python3.10 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgres://moxie_user:moxie_password@db:5432/moxie_db"
+
+volumes:
+  postgres_data:
