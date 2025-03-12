@@ -1,0 +1,247 @@
+{
+    "info": {
+        "name": "Moxie Medspa API",
+        "description": "Collection for testing Moxie Medspa API endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Medspa",
+            "item": [
+                {
+                    "name": "Create Medspa",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:8000/api/medspa/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "medspa"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\": \"Luxury Medspa\", \"address\": \"123 Spa St\", \"phone_number\": \"1234567890\", \"email\": \"contact@luxuryspa.com\"}"
+                        }
+                    }
+                },
+                {
+                    "name": "List Medspas",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/medspa/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "medspa"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Retrieve Medspa",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/medspa/1/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "medspa",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Service",
+            "item": [
+                {
+                    "name": "Create Service",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:8000/api/service/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "service"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\": \"Botox\", \"description\": \"Wrinkle treatment\", \"price\": 250.0, \"price_varies\": false, \"duration\": 30, \"medspa_id\": 1}"
+                        }
+                    }
+                },
+                {
+                    "name": "List Services",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/service/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "service"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Retrieve Service",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/service/1/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "service",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Appointment",
+            "item": [
+                {
+                    "name": "Create Appointment",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:8000/api/appointment/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "appointment"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"start_time\": \"2025-03-12T10:00:00Z\", \"service_ids\": [1, 2], \"medspa\": 1, \"status\": \"scheduled\"}"
+                        }
+                    }
+                },
+                {
+                    "name": "List Appointments",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/appointment/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "appointment"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Retrieve Appointment",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/appointment/1/",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "appointment",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Filter by Status",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/appointment/filter_by_status/?status=scheduled",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "appointment",
+                                "filter_by_status"
+                            ],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "scheduled"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Filter by Date",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/appointment/filter_by_date/?start_date=2025-03-11",
+                            "host": [
+                                "localhost:8000"
+                            ],
+                            "path": [
+                                "api",
+                                "appointment",
+                                "filter_by_date"
+                            ],
+                            "query": [
+                                {
+                                    "key": "start_date",
+                                    "value": "2025-03-11"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

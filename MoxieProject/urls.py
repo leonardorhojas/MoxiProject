@@ -24,9 +24,9 @@ from MoxieProject.views import home
 from api.views import MedspaViewSet, ServiceViewSet, AppointmentViewSet
 
 router = DefaultRouter()
-router.register(r'medspa', MedspaViewSet)
-router.register(r'service', ServiceViewSet)
-router.register(r'appointment', AppointmentViewSet)
+router.register(r'medspa', MedspaViewSet, basename='medspa')
+router.register(r'service', ServiceViewSet, basename='service')
+router.register(r'appointment', AppointmentViewSet, basename='appointment')
 
 schema_view = get_schema_view(
     openapi.Info(
